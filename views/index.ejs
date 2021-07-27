@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <link rel="stylesheet" href="/app.css">
+  <body>
+    <div class="title">
+      <h2>dot</h2><h1>photomode</h1>
+    </div>
+
+
+    <% for(let i = 0; i < posts.length; i++) { %>
+      <li><%=posts[i].name%></li>
+      <li><img src="<%=posts[i].img%>"/></li>
+      <li><%=posts[i].description%></li>
+      <div>
+        <label for="heart"></label>
+          <input type="checkbox" id="heart" name="heart" />
+          <span>Heart this??</span>
+      </div>
+      <br/>
+
+    <% } %>
+    <form action="/posts/new">
+      <input type="submit" value="New Post">
+    </form>
+  </body>
+</html>

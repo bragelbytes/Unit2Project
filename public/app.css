@@ -1,0 +1,13 @@
+.title{
+  display: flex;
+  flex-direction: row;
+}
+
+img{
+  width: 800px;
+  height: auto;
+}
+
+li{
+  list-style: none;
+}

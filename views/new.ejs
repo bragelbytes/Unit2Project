@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>New Page</h1>
+    <form action="/posts" method="POST">
+      <li>Game Title: <input type="text" name="name" value="Ghost of Tsushima"></li>
+      <li>Img: <input type="text" name="img" value="https://i.imgur.com/4WKTXHM.jpg"></li>
+      <li>Description: <input type="text" name="description" value="Flowers and fog"></li>
+      <div>
+        <label for="heart"></label>
+          <input type="checkbox" id="heart" name="heart" />
+          <span>Heart this??</span>
+      </div>
+    </form>
+    <form action="/posts">
+      <input type="submit" value="Home">
+    </form>
+  </body>
+</html>
