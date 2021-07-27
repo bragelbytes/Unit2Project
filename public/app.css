@@ -3,9 +3,50 @@
   flex-direction: row;
 }
 
-img{
-  width: 800px;
+.postbox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0;
+}
+
+.imgpost{
+  width: 100%;
   height: auto;
+  padding: 0;
+}
+
+.showimg{
+  width: 80%;
+  height: auto;
+}
+
+.posts{
+  text-align: center;
+  border-style: solid;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-color: black;
+  margin: 10px;
+  padding: 0;
+  width: 400px;
+  height: auto;
+}
+
+.maincontainer{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-around;
 }
 
 li{

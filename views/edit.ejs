@@ -3,15 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="/app.css">
   </head>
   <body>
-   <h1>Edit Page</h1>
-    <form action="/posts/<%=post.id%>?_method=PUT" method="POST">
-      <li>Game Title: <input type="text" name="name" value="<%=post.name%>"></li>
-      <li>Img: <input type="text" name="img" value="<%=post.name%>"></li>
-      <li>Description: <input type="text" name="description" value="<%=post.description%>"></li>
-      <li>Heart: <input type="text" name="heart" value="<%=post.heart%>"></li>
-      <input type="submit" value="Accept Changes">
-    </form>
+    <div class="maincontainer">
+      <h1>Edit Page</h1>
+       <form action="/posts/<%=post._id%>?_method=PUT" method="POST">
+         <li><h2>Game Title: </h2><input type="text" name="name" value="<%=post.name%>"></li>
+         <li>Img: <input type="text" name="img" value="<%=post.img%>"></li>
+         <li>Description: <input type="text" name="description" value="<%=post.description%>"></li>
+         <li>Heart: <input type="checkbox" name="heart" value="<%=post.heart%>"></li>
+         <input type="submit" value="Accept Changes">
+       </form>
+    </div>
+
   </body>
 </html>

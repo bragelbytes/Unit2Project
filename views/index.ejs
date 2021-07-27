@@ -10,19 +10,26 @@
       <h2>dot</h2><h1>photomode</h1>
     </div>
 
+    <div class="postbox">
+      <% for(let i = 0; i < posts.length; i++) { %>
+        <div class="posts">
 
-    <% for(let i = 0; i < posts.length; i++) { %>
-      <li><%=posts[i].name%></li>
-      <li><img src="<%=posts[i].img%>"/></li>
-      <li><%=posts[i].description%></li>
-      <div>
-        <label for="heart"></label>
-          <input type="checkbox" id="heart" name="heart" />
-          <span>Heart this??</span>
-      </div>
-      <br/>
+          <li>
+            <a href="/posts/<%=posts[i]._id%>">
+            <img src="<%=posts[i].img%>" class="imgpost"/></a>
+          </li>
+          <li><h3><%=posts[i].name%></h3></li>
+          <li><%=posts[i].description%></li>
+          <div>
+            <label for="heart"></label>
+              <input type="checkbox" id="heart" name="heart" />
+              <span>Heart this??</span>
+          </div>
+        </div>
+        <br/>
+      <% } %>
+    </div>
 
-    <% } %>
     <form action="/posts/new">
       <input type="submit" value="New Post">
     </form>

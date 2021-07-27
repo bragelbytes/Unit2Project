@@ -3,25 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="/app.css">
   </head>
   <body>
-    <h1>Show Page</h1>
-    <li><h1><%=post.name%></h1></li>
-    <li><img src="<%=post.name%>"></li>
-    <li><%=post.description%></li>
-    <% if(post.heart === true){ %>
-      Checked
-    <% } %>
+    <div class="maincontainer">
+      <li><h1><%=post.name%></h1></li>
+      <li><img src="<%=post.img%>" class="showimg"></li>
+      <li><%=post.description%></li>
+      <% if(post.heart === true){ %>
+        Checked
+      <% } %>
+    </div>
     <br/>
-      <button type="button" name="button"><a href="/posts/<%=post._id%>/edit">Edit</a></button>
-      <br>
-      <br>
-      <form action="/posts/<%=post._id%>?_method=DELETE" method="POST">
-        <input type="submit" value="DELETE"/>
+    <div class="buttons">
+      <!-- edit -->
+      <form action="/posts/<%=post.id%>/edit">
+        <input type="submit" value="Edit">
       </form>
-      <br>
-      <button type="button" name="button">
-        <a href="/posts">Back</a>
-      </button>
+      <!-- home button -->
+      <form action="/posts">
+        <input type="submit" value="Home">
+      </form>
+
+      <!-- delete -->
+      <form action="/posts/<%=post.id%>?_method=DELETE" method="POST" class>
+        <input type="submit" value="DELETE">
+      </form>
+    </div>
+
   </body>
 </html>
