@@ -25,7 +25,10 @@ app.use(express.json());
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 app.use("/posts", postController)
 
-
+//Heroku
+app.get("/", (req, res) => {
+  res.redirect("/posts")
+})
 
 //Listener
 app.listen(PORT, () => console.log( 'Listening for Project 2 on port:', PORT));
