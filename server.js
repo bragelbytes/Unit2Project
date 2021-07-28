@@ -6,6 +6,7 @@ const app = express ();
 const postController = require("./controllers/post_controller.js")
 const db = mongoose.connection;
 require('dotenv').config()
+const userController = require("./controllers/user_controller.js")
 
 //Config
 // Allow use of Heroku's port or your own local port, depending on the environment
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: false }));// extended: false - does not a
 app.use(express.json());
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 app.use("/posts", postController)
+app.use("/users", userController)
 
 //Heroku
 app.get("/", (req, res) => {
