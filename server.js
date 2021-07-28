@@ -7,6 +7,8 @@ const postController = require("./controllers/post_controller.js")
 const db = mongoose.connection;
 require('dotenv').config()
 const userController = require("./controllers/user_controller.js")
+const session = require("express-session")
+const sessionController = require("./controllers/session_controller.js")
 
 //Config
 // Allow use of Heroku's port or your own local port, depending on the environment
@@ -19,6 +21,13 @@ db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 //Middleware
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+  })
+)
 app.use(express.static('public'));
 // populates req.body with parsed info from forms - if no data from forms will return an empty object {}
 app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
@@ -26,7 +35,7 @@ app.use(express.json());
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 app.use("/posts", postController)
 app.use("/users", userController)
-
+app.use("/sessions", sessionController)
 //Heroku
 app.get("/", (req, res) => {
   res.redirect("/posts")
