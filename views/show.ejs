@@ -15,6 +15,16 @@
       <% } %>
     </div>
     <br/>
+    <h3>Comments</h3>
+    <% if(post.comments.length > 0){ %>
+        <% for(let i = 0; i < post.comments.length; i++){ %>
+          <li><%=post.comments[i]%></li>
+        <% } %>
+    <% } %>
+    <form action="/posts/<%=post.id%>/comments?_method=PUT" method="POST">
+      <textarea name="comments" rows="8" cols="80"></textarea>
+      <input type="submit" value="Comment">
+    </form>
     <div class="buttons">
       <!-- edit -->
       <form action="/posts/<%=post.id%>/edit">

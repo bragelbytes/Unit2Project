@@ -6,9 +6,24 @@
   </head>
   <link rel="stylesheet" href="/app.css">
   <body>
-    <div class="title">
-      <h2>dot</h2><h1>photomode</h1>
+    <div class="navbar">
+      <div class="title">
+        <h2>dot</h2><h1>photomode</h1>
+      </div>
+      <div class="buttons">
+        <form action="/users/new">
+          <input type="submit" value="Sign Up">
+        </form>
+        <form action="/sessions/new">
+          <input type="submit" value="Log In">
+        </form>
+        <form action="/sessions?_method=DELETE" method="POST">
+          <input type="submit" value="Sign Out">
+        </form>
+      </div>
     </div>
+
+
 
     <div class="postbox">
       <% for(let i = 0; i < posts.length; i++) { %>
