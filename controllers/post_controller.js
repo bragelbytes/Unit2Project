@@ -49,7 +49,24 @@ router.put("/:id", (req, res) => {
   })
 })
 
+//Heart UPDATE
+router.put("/:id/heart", (req,res) => {
 
+  if(req.body.heart === 0){
+    req.body.heart = req.body.heartThis + 1;
+    Post.findByIdAndUpdate(req.params.id, req.body, {new:true},
+      (error, updatePosts) => {
+        res.redirect("/posts/" + req.params.id)
+      })
+  } else {
+    req.body.heart = req.body.heartThis - 1;
+    Post.findByIdAndUpdate(req.params.id, req.body, {new:true},
+      (error, updatePosts) => {
+        res.redirect("/posts/" + req.params.id)
+      })
+  }
+
+})
 
 
 //INDEX
@@ -58,7 +75,8 @@ router.get('/' , isAuthenticated, (req, res) => {
     res.render(
       "index.ejs",
       {
-        posts: allPosts
+        posts: allPosts,
+        currentUser: req.session.currentUser
       }
     )
   })
@@ -72,63 +90,63 @@ router.get("/seed", (req, res) => {
         name: "Ghost of Tsushima",
         img: "https://i.imgur.com/EeplxiR.jpg",
         description: "Flower field",
-        heart: true,
+        heart: 0,
         comments: []
       },
       {
         name: "The Last of Us 2",
         img: "https://i.imgur.com/GfsybDL.jpg",
         description: "Whale of a time",
-        heart: true,
+        heart: 0,
         comments: []
       },
       {
         name: "Control",
         img: "https://i.imgur.com/xQ56qtK.jpg",
         description: "Dank office.",
-        heart: true,
+        heart: 0,
         comments: []
       },
       {
         name: "Control",
         img: "https://i.imgur.com/6QQn84D.jpg",
         description: "It's time.",
-        heart: true,
+        heart: 0,
         comments: []
       },
       {
         name: "Ghost of Tsushima",
         img: "https://i.imgur.com/4WKTXHM.jpg",
         description: "Flowers and fog.",
-        heart: true,
+        heart: 0,
         comments: []
       },
       {
         name: "Control",
         img: "https://i.imgur.com/WGOfbbb.jpg",
         description: "A moment of respite.",
-        heart: true,
+        heart: 0,
         comments: []
       },
       {
         name: "The Last of Us 2",
         img: "https://i.imgur.com/B5AJA4g.jpg",
         description: "Rainbow road.",
-        heart: true,
+        heart: 0,
         comments: []
       },
       {
         name: "The Last of Us 2",
         img: "https://i.imgur.com/RmGHmLh.jpg",
         description: "Octodad",
-        heart: true,
+        heart: 0,
         comments: []
       },
       {
         name: "The Last of Us 2",
         img: "https://i.imgur.com/R46TifV.jpg",
         description: "Lunch break",
-        heart: true,
+        heart: 0,
         comments: []
       },
 

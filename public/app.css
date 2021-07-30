@@ -96,3 +96,9 @@ body{
 li{
   list-style: none;
 }
+
+.heart{
+  width: 15px;
+  height: auto;
+  margin-bottom: 10px;
+}

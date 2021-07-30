@@ -5,9 +5,9 @@ const Comment = require("./comments.js")
 //schema
 const postSchema = new mongoose.Schema({
   name: {type:String, required: true},
-  img: String,
+  img: {type:String, required: true},
   description: String,
-  heart: Boolean,
+  heart: Number,
   comments: [String]
 })
 

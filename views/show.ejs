@@ -10,9 +10,17 @@
       <li><h1><%=post.name%></h1></li>
       <li><img src="<%=post.img%>" class="showimg"></li>
       <li><%=post.description%></li>
-      <% if(post.heart === true){ %>
-        Checked
-      <% } %>
+      <% if(post.heart === 0){ %>
+        <form action="/posts/<%=post.id%>/heart?_method=PUT" method="POST">
+          <input type="hidden" name="heartThis" value="<%=post.heart%>">
+          <input type="submit" value="Heart This?">
+        </form>
+    <% } else { %>
+      <form action="/posts/<%=post.id%>/heart?_method=PUT" method="POST">
+        <input type="hidden" name="heartThis" value="<%=post.heart%>">
+        <input type="submit" value="Un-Heart This?">
+      </form>
+    <% } %>
     </div>
     <br/>
     <h3>Comments</h3>
