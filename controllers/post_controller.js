@@ -20,7 +20,7 @@ router.delete("/:id", (req, res) => {
 })
 
 //EDIT
-router.get("/:id/edit", isAuthenticated, (req, res) => {
+router.get("/:id/edit", (req, res) => {
   Post.findById(req.params.id, (error, editPosts) => {
     res.render(
       "edit.ejs",
@@ -53,7 +53,7 @@ router.put("/:id", (req, res) => {
 
 
 //INDEX
-router.get('/' , (req, res) => {
+router.get('/' , isAuthenticated, (req, res) => {
   Post.find({}, (error, allPosts) => {
     res.render(
       "index.ejs",
@@ -140,7 +140,7 @@ router.get("/seed", (req, res) => {
 })
 
 //NEW
-router.get("/new", isAuthenticated, (req, res) => {
+router.get("/new", (req, res) => {
   res.render("new.ejs")
 })
 
@@ -150,7 +150,8 @@ router.get("/:id", (req, res) => {
     res.render(
       "show.ejs",
       {
-        post: showPosts
+        post: showPosts,
+        currentUser: req.session.currentUser
       }
     )
   })
